@@ -1,0 +1,37 @@
+name: cef
+tests:
+- 'CEF:0|Incapsula|SIEMintegration|1|1|Normal|0| fileId=8075000560454240047 sourceServiceName=www.example.com
+  siteid=77716812 suid=1962024 requestClientApplication=Mozilla/5.0+(compatible; UptimeRobot/2.0;
+  http://www.uptimerobot.com/) deviceFacility=dfw cs2=false cs2Label=Javascript Support
+  cs3=false cs3Label=CO Support cs1=NA cs1Label=Cap Support cs4=aa45a87f-7130-4dc2-bdf6-72e1a9bd9532
+  cs4Label=VID cs5=7322da0f6df8b27cd4770f288f300309fec968c732ceb37508f599398f3939df5808b09545aac7b376d2db6326a1f674e45115380b29d6458be2069588d604b2ac55c6906d10948e467377c52389503e025ba6bdcb70600119e4da09a7dc349b
+  cs5Label=clappsig dproc=Site Helper cs6=UptimeRobot cs6Label=clapp ccode=US cicode=New
+  Castle cs7=39.587 cs7Label=latitude cs8=-75.6112 cs8Label=longitude Customer=example
+  start=1665420152885 request=example.group/example ref=http://example.co.nz/
+  requestMethod=HEAD cn1=200 app=HTTPS act=REQ_PASSED deviceExternalId=1161190558426402315
+  sip=23.185.0.1 spt=443 in=0 xff=63.143.42.246 cs10=[{"rule_id":"566149346","type":"AD_HEADER_RW","header_name":"Content-Security-Policy-Report-Only","header_rewrite":"font-src
+  ''self'' ''unsafe-eval'' ''unsafe-hashes'' ''unsafe-inline'' data: blob: use.typekit.net;
+  script-src ''self'' ''unsafe-eval'' ''unsafe-hashes'' ''unsafe-inline'' data: blob:
+  www.googletagmanager.com use.fontawesome.com js.hs-scripts.com ml314.com; style-src
+  ''self'' ''unsafe-eval'' ''unsafe-hashes'' ''unsafe-inline'' data: blob: p.typekit.net
+  use.typekit.net; default-src ''self'' ''unsafe-eval'' ''unsafe-hashes'' ''unsafe-inline''
+  data: blob: ; form-action ''none'' data: blob: ; frame-ancestors ''self'' ; report-uri
+  /csp_report"}] cs10Label=Rule Info cpt=43424 src=63.143.42.246 ver=TLSv1.3 TLS_AES_128_GCM_SHA256
+  end=1665420153144'
+- 109.169.248.247 - - [12/Dec/2015:18:25:11 +0100] "GET /administrator/ HTTP/1.1"
+  200 4263 "-" "Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0"
+  "-"
+- <34>1 2003-10-11T22:14:15.003Z mymachine.example.com su - ID47 - BOM'su root' failed
+  for lonvick on /dev/pts/8
+- '{"@path":"x509","@sensor":"host-sensor","@timestamp":"2019-06-01T02:57:39.982467Z","ts":"2019-06-01T02:57:39.982467Z","id":"FJyS8D2AI1cHajXbMg","certificate.version":3,"certificate.serial":"0394BF7C616948D34169AA51CE3A4BFCC76C","certificate.subject":"CN=cloud.humio.com","certificate.issuer":"CN=Let''s
+  Encrypt Authority X3,O=Let''s Encrypt,C=US","certificate.not_valid_before":"2019-05-16T03:11:23.000000Z","certificate.not_valid_after":"2019-08-14T03:11:23.000000Z","certificate.key_alg":"rsaEncryption","certificate.sig_alg":"sha256WithRSAEncryption","certificate.key_type":"rsa","certificate.key_length":2048,"certificate.exponent":"65537","san.dns":["cloud.humio.com"],"basic_constraints.ca":false}'
+- '{"Timestamp":"2019-01-18T13:06:53.3642110+01:00","Level":"Information","MessageTemplate":"Number
+  of user sessions {@UserSessions}","RenderedMessage":"Number of user sessions 103","Properties":{"UserSessions":103,"ProcessId":"8009"}}'
+- 2018-10-15T12:52:42+01:30 [ERROR] Here is an error log entry. class=c.o.StringUtil
+  fruit=pineapple
+- 1286536309.549    172 192.168.0.227 TCP_MISS/204 294 GET http://v15.lscache3.c.youtube.com/generate_204?
+  - DIRECT/122.160.120.150 text/html
+$schema: https://schemas.humio.com/parser/v0.1.0
+script: |
+  parseCEF(@rawstring) | time := formatTime("%Y/%m/%d %H:%M:%S", field=cef.ext.start, timezone=Z)
+tagFields: []
