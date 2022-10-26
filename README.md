@@ -24,7 +24,7 @@ Package creator doesn't current offer support for this package.
 
 # Dependencies
 The package uses logs from the following log type from Imperva : CEF. Please make sure unencrypted CEF is selected when configuring the log forwarding from Imperva.
-Package uses 2 csv files for country code matching and severity level matching which can be retrieved from this url: https://www.github.com/
+Package uses 2 csv files for country code matching and severity level matching which can be retrieved from this url: [https://www.github.com/](https://github.com/TravisAnde/humioimperva)
 
 # Installation
 The preferred option for sending logs from Imperva to Humio is to choose Amazon S3 (available under the Account Management in the Imperva Console). 
